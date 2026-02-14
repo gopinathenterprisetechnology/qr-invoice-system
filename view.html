@@ -64,14 +64,20 @@ data.items.forEach((item,index)=>{
  `;
 });
 document.getElementById("invoiceData").innerHTML = `
+
+
+
 <div style="background:#1e3a8a; color:white; padding:20px; border-radius:6px;">
-  <div style="display:flex; align-items:center; justify-content:space-between;">
+
+  <div style="display:flex; align-items:center;">
+
     <!-- Left Logo -->
-    <div>
+    <div style="width:120px; text-align:left;">
       <img src="logo-left.png" style="height:100px;">
     </div>
+
     <!-- Center Shop Details -->
-    <div style="text-align:center; flex:1;">
+    <div style="flex:1; text-align:center;">
       <h2 style="margin:0;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
       <p style="margin:2px 0; font-weight:bold;">CYBER CAFE & MOBILE SHOP</p>
       <p style="margin:2px 0;">
@@ -81,12 +87,15 @@ document.getElementById("invoiceData").innerHTML = `
         Dakshin Rasulpur, Arambagh, Hooghly, West Bengal - 712413
       </p>
     </div>
+
     <!-- Right Logo -->
-    <div>
+    <div style="width:120px; text-align:right;">
       <img src="logo-right.png" style="height:100px;">
     </div>
+
   </div>
-  <!-- Bottom Line -->
+
+  <!-- Email Left | Mobile Right -->
   <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:14px;">
     <div>
       Email: gopinathenterprisetechnology@gmail.com
@@ -95,7 +104,18 @@ document.getElementById("invoiceData").innerHTML = `
       Mobile: 9339225562 / 8001901640
     </div>
   </div>
+
 </div>
+
+
+                   
+                   
+    
+
+
+
+
+      
 <br>
 <div class="section">
 <b>Invoice No:</b> ${data.invoice.number}
