@@ -109,18 +109,31 @@ document.getElementById("invoiceData").innerHTML = `
 
 
                    
-                   
+  <div style="border:2px solid black; padding:10px; margin-top:10px;">
+
+  <div style="display:flex; justify-content:space-between; font-weight:bold;">
+
+    <div>
+      Invoice No: ${data.invoice.number}
+    </div>
+
+    <div style="text-align:center;">
+      Payment Mode: ${data.invoice.payment_mode}
+    </div>
+
+    <div style="text-align:right;">
+      Date: ${data.invoice.date}
+    </div>
+
+  </div>
+
+</div>                 
     
 
 
 
 
-      
-<br>
-<div class="section">
-<b>Invoice No:</b> ${data.invoice.number}
-<span style="float:right;"><b>Date:</b> ${data.invoice.date}</span>
-</div>
+
 <div class="section">
 <b>Customer:</b> ${data.customer.name}<br>
 <b>Address:</b> ${data.customer.address}<br>
