@@ -2,11 +2,13 @@
 <html>
 <head>
 <title>Invoice Verification</title>
+
 <style>
 body{
   font-family: Arial;
   background:#f5f5f5;
 }
+
 .bill{
   width:800px;
   margin:20px auto;
@@ -14,40 +16,99 @@ body{
   padding:20px;
   border:2px solid black;
 }
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  border:1px solid black;
+  padding:6px;
+  text-align:center;
+}
+
+.right{
+  text-align:right;
+}
+
+.bold{
+  font-weight:bold;
+}
+
+.section{
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bill" id="invoiceData">
+Loading Invoice...
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const invoiceNo = params.get("inv");
+
+if(!invoiceNo){
+ document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
+}
+else{
+
+fetch("invoices/" + invoiceNo + ".json")
+.then(response=>{
+ if(!response.ok){ throw new Error("Not Found"); }
+ return response.json();
+})
+.then(data=>{
+
+let itemsHTML = "";
+
+data.items.forEach((item,index)=>{
+ itemsHTML += `
+ <tr>
+   <td>${index+1}</td>
+   <td>${item.name}</td>
+   <td>${item.qty}</td>
+   <td>${item.rate}</td>
+   <td>${item.amount}</td>
+ </tr>
+ `;
+});
+
+document.getElementById("invoiceData").innerHTML = `
+
 <div style="background:#1e3a8a; color:white; padding:15px; border-radius:6px;">
 
   <div style="display:flex; align-items:center; justify-content:space-between;">
 
-    <!-- Left Logo -->
     <div>
       <img src="logo-left.png" style="height:70px;">
-
     </div>
 
-    <!-- Center Shop Details -->
     <div style="text-align:center; flex:1;">
-      <h2 style="margin:0; color:white;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
-      <p style="margin:2px 0; font-weight:bold; color:white;">CYBER CAFE & MOBILE SHOP</p>
-      <p style="margin:2px 0; color:white;">
-        All Type of Mobile, Acceseries, Headphone, Earbuds, Neckband Sales & Services
+      <h2 style="margin:0;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
+      <p style="margin:2px 0; font-weight:bold;">CYBER CAFE & MOBILE SHOP</p>
+      <p style="margin:2px 0;">
+        All Type of Mobile, Accessories, Headphone, Earbuds, Neckband Sales & Services
       </p>
-      <p style="margin:2px 0; color:white;">
+      <p style="margin:2px 0;">
         Dakshin Rasulpur, Arambagh, Hooghly, West Bengal - 712413
       </p>
-      <p style="margin:2px 0; color:white;">
+      <p style="margin:2px 0;">
         Mobile: 9339225562 / 8001901640
       </p>
     </div>
 
-    <!-- Right Logo -->
     <div>
-     <img src="logo-right.png" style="height:70px;">
-
+      <img src="logo-right.png" style="height:70px;">
     </div>
 
   </div>
 
-  <!-- Bottom Line: Email Left | Place of Supply Right -->
   <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:14px;">
     <div>
       Email: gopinathenterprisetechnology@gmail.com
@@ -59,8 +120,7 @@ body{
 
 </div>
 
-
-
+<br>
 
 <div class="section">
 <b>Invoice No:</b> ${data.invoice.number}
@@ -72,6 +132,8 @@ body{
 <b>Address:</b> ${data.customer.address}<br>
 <b>Mobile:</b> ${data.customer.mobile}
 </div>
+
+<br>
 
 <table>
 <tr>
@@ -108,8 +170,7 @@ ${itemsHTML}
 </div>
 
 <div class="section">
-<b>Description:</b> ${data.description}
-</div>
+<b>Description:</b> ${data.description}</div>
 
 <br><br>
 
@@ -121,19 +182,19 @@ ${itemsHTML}
 </div>
 
 <div style="text-align:right;">
-For ${data.shop.name}<br><br>
 Authorised Signature
 </div>
 </div>
 
-</div>
 `;
 
 })
 .catch(()=>{
 document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 });
+
 }
+
 </script>
 
 </body>
