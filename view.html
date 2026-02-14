@@ -14,88 +14,39 @@ body{
   padding:20px;
   border:2px solid black;
 }
-.header{
-  text-align:center;
-  font-weight:bold;
-  font-size:18px;
-}
-.section{
-  border:1px solid black;
-  padding:5px;
-  margin-top:5px;
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-table, th, td{
-  border:1px solid black;
-}
-th,td{
-  padding:5px;
-  font-size:14px;
-}
-.right{
-  text-align:right;
-}
-.bold{
-  font-weight:bold;
-}
-</style>
-</head>
-<body>
+<div style="background:#1e3a8a; color:white; padding:15px; border-radius:6px;">
 
-<div id="invoiceData">Loading...</div>
+  <div style="display:flex; align-items:center; justify-content:space-between;">
 
-<script>
-const params = new URLSearchParams(window.location.search);
-const inv = params.get("inv");
+    <!-- Left Logo -->
+    <div>
+      <img src="logo.png" style="height:70px;">
+    </div>
 
-if(!inv){
- document.getElementById("invoiceData").innerHTML="Invalid QR ❌";
-}else{
+    <!-- Center Shop Details -->
+    <div style="text-align:center; flex:1;">
+      <h2 style="margin:0; color:white;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
+      <p style="margin:2px 0; font-weight:bold; color:white;">CYBER CAFE & MOBILE SHOP</p>
+      <p style="margin:2px 0; color:white;">
+        All Type of Mobile, Acceseries, Headphone, Earbuds, Neckband Sales & Services
+      </p>
+      <p style="margin:2px 0; color:white;">
+        Dakshin Rasulpur, Arambagh, Hooghly, West Bengal - 712413
+      </p>
+      <p style="margin:2px 0; color:white;">
+        Mobile: 9339225562 / 8001901640
+      </p>
+    </div>
 
-fetch("invoices/"+inv+".json")
-.then(res=>{
- if(!res.ok) throw new Error();
- return res.json();
-})
-.then(data=>{
+    <!-- Right Logo -->
+    <div>
+      <img src="logo.png" style="height:70px;">
+    </div>
 
-let itemsHTML="";
-data.items.forEach((item,i)=>{
-itemsHTML+=`
-<tr>
-<td>${i+1}</td>
-<td>${item.name}<br>Colour: ${item.colour}</td>
-<td>${item.qty}</td>
-<td>${item.rate}</td>
-<td>${item.amount}</td>
-</tr>`;
-});
-
-document.getElementById("invoiceData").innerHTML=`
-
-<div class="bill">
-
-<div style="border-bottom:2px solid black; padding-bottom:10px; margin-bottom:15px;">
-
-  <div style="text-align:center;">
-    <h2 style="margin:0;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
-    <p style="margin:2px 0; font-weight:bold;">CYBER CAFE & MOBILE SHOP</p>
-    <p style="margin:2px 0;">
-      All Type of Mobile, Acceseries, Headphone, Earbuds, Neckband Sales & Services
-    </p>
-    <p style="margin:2px 0;">
-      Dakshin Rasulpur, Arambagh, Hooghly, West Bengal - 712413
-    </p>
-    <p style="margin:2px 0;">
-      Mobile: 9339225562 / 8001901640
-    </p>
   </div>
 
   <!-- Bottom Line: Email Left | Place of Supply Right -->
-  <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:14px;">
+  <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:14px;">
     <div>
       Email: gopinathenterprisetechnology@gmail.com
     </div>
@@ -105,6 +56,7 @@ document.getElementById("invoiceData").innerHTML=`
   </div>
 
 </div>
+
 
 
 
