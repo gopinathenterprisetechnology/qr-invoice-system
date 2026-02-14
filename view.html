@@ -2,13 +2,11 @@
 <html>
 <head>
 <title>Invoice Verification</title>
-
 <style>
 body{
   font-family: Arial;
   background:#f5f5f5;
 }
-
 .bill{
   width:800px;
   margin:20px auto;
@@ -16,57 +14,44 @@ body{
   padding:20px;
   border:2px solid black;
 }
-
 table{
   width:100%;
   border-collapse:collapse;
 }
-
 th,td{
   border:1px solid black;
   padding:6px;
   text-align:center;
 }
-
 .right{
   text-align:right;
 }
-
 .bold{
   font-weight:bold;
 }
-
 .section{
   margin-top:10px;
 }
 </style>
 </head>
-
 <body>
-
 <div class="bill" id="invoiceData">
 Loading Invoice...
 </div>
-
 <script>
-
 const params = new URLSearchParams(window.location.search);
 const invoiceNo = params.get("inv");
-
 if(!invoiceNo){
  document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 }
 else{
-
 fetch("invoices/" + invoiceNo + ".json")
 .then(response=>{
  if(!response.ok){ throw new Error("Not Found"); }
  return response.json();
 })
 .then(data=>{
-
 let itemsHTML = "";
-
 data.items.forEach((item,index)=>{
  itemsHTML += `
  <tr>
@@ -78,17 +63,14 @@ data.items.forEach((item,index)=>{
  </tr>
  `;
 });
-
 document.getElementById("invoiceData").innerHTML = `
-
-<div style="background:#1e3a8a; color:white; padding:15px; border-radius:6px;">
-
+<div style="background:#1e3a8a; color:white; padding:20px; border-radius:6px;">
   <div style="display:flex; align-items:center; justify-content:space-between;">
-
+    <!-- Left Logo -->
     <div>
-      <img src="logo-left.png" style="height:70px;">
+      <img src="logo-left.png" style="height:100px;">
     </div>
-
+    <!-- Center Shop Details -->
     <div style="text-align:center; flex:1;">
       <h2 style="margin:0;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
       <p style="margin:2px 0; font-weight:bold;">CYBER CAFE & MOBILE SHOP</p>
@@ -98,43 +80,34 @@ document.getElementById("invoiceData").innerHTML = `
       <p style="margin:2px 0;">
         Dakshin Rasulpur, Arambagh, Hooghly, West Bengal - 712413
       </p>
-      <p style="margin:2px 0;">
-        Mobile: 9339225562 / 8001901640
-      </p>
     </div>
-
+    <!-- Right Logo -->
     <div>
-      <img src="logo-right.png" style="height:70px;">
+      <img src="logo-right.png" style="height:100px;">
     </div>
-
   </div>
-
+  <!-- Bottom Line -->
   <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:14px;">
     <div>
       Email: gopinathenterprisetechnology@gmail.com
     </div>
     <div>
-      Place of Supply: ____________________
+      Mobile: 9339225562 / 8001901640
     </div>
   </div>
-
 </div>
-
 <br>
-
 <div class="section">
 <b>Invoice No:</b> ${data.invoice.number}
 <span style="float:right;"><b>Date:</b> ${data.invoice.date}</span>
 </div>
-
 <div class="section">
 <b>Customer:</b> ${data.customer.name}<br>
 <b>Address:</b> ${data.customer.address}<br>
+<b>Place of Supply:</b> ${data.customer.address}<br>
 <b>Mobile:</b> ${data.customer.mobile}
 </div>
-
 <br>
-
 <table>
 <tr>
 <th>Sl No</th>
@@ -145,9 +118,7 @@ document.getElementById("invoiceData").innerHTML = `
 </tr>
 ${itemsHTML}
 </table>
-
 <br>
-
 <table>
 <tr>
 <td class="right bold">Total Amount :</td>
@@ -162,40 +133,29 @@ ${itemsHTML}
 <td class="right">${data.total.due}</td>
 </tr>
 </table>
-
 <br>
-
 <div class="section">
 <b>Rupees In Words:</b> ${data.total.words}
 </div>
-
 <div class="section">
 <b>Description:</b> ${data.description}</div>
-
 <br><br>
-
 <div style="display:flex; justify-content:space-between;">
 <div>
 <b>Terms & Conditions:</b><br>
 1. Goods once sold not taken back.<br>
 2. Warranty as per company policy.
 </div>
-
 <div style="text-align:right;">
 Authorised Signature
 </div>
 </div>
-
 `;
-
 })
 .catch(()=>{
 document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 });
-
 }
-
 </script>
-
 </body>
 </html>
