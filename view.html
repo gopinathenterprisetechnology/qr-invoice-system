@@ -179,15 +179,16 @@ ${itemsHTML}
 </div>
 <div class="section">
 <b>Description:</b> ${data.description}</div>
+
 <br><br>
 
-<div style="display:flex; justify-content:space-between; gap:20px; margin-top:20px;">
+<div style="display:flex; width:100%; margin-top:20px;">
 
-  <!-- LEFT SIDE -->
+  <!-- LEFT COLUMN -->
   <div style="width:50%;">
 
-    <!-- Terms & Conditions Box -->
-    <div style="border:2px solid black; padding:10px; min-height:140px;">
+    <!-- Terms Box -->
+    <div style="border:2px solid black; padding:10px; min-height:160px;">
       <b>Terms & Conditions:</b><br><br>
       1. Goods once sold not taken back.<br>
       2. Warranty of all items covered by the principal.<br>
@@ -195,30 +196,30 @@ ${itemsHTML}
       4. Warranty not covered in case of physical or internal damage.
     </div>
 
-    <!-- Customer Signature Box -->
-    <div style="border:2px solid black; margin-top:20px; padding:10px; height:80px;">
+    <!-- Customer Signature -->
+    <div style="border-left:2px solid black; border-right:2px solid black; border-bottom:2px solid black; padding:10px; height:100px;">
       <b>Customer Signature</b>
     </div>
 
   </div>
 
 
-  <!-- RIGHT SIDE -->
+  <!-- RIGHT COLUMN -->
   <div style="width:50%;">
 
-    <div style="display:flex; justify-content:space-between;">
+    <!-- Bank Details + QR -->
+    <div style="border:2px solid black; padding:10px; min-height:160px; display:flex; justify-content:space-between;">
 
       <!-- Bank Details -->
-      <div style="width:60%; border:2px solid black; padding:10px; min-height:120px;">
+      <div style="width:60%;">
         <b>Bank Account Details:</b><br><br>
         Bank Name: Bank of India<br>
         A/C Name: GOPINATH ENTERPRISE<br>
         A/C No: 425420110000328<br>
-        IFSC: BKID0004254<br>
-        A/C Type: Current
+        IFSC: BKID0004254
       </div>
 
-      <!-- Payment QR -->
+      <!-- QR Inside Same Box -->
       <div style="width:35%; text-align:center;">
         <b>Scan & Pay</b><br><br>
         <img src="${data.payment_qr}" style="height:120px;">
@@ -227,14 +228,16 @@ ${itemsHTML}
     </div>
 
     <!-- Authorised Signature -->
-    <div style="border:2px solid black; margin-top:20px; padding:10px; height:80px; text-align:center;">
-      <b>Gopinath Enterprise & Technology</b><br><br><br><br>
+    <div style="border-left:2px solid black; border-right:2px solid black; border-bottom:2px solid black; padding:10px; height:100px; text-align:center;">
+      <b>Gopinath Enterprise & Technology</b><br><br><br>
       Authorised Signature
     </div>
 
   </div>
 
 </div>
+
+      
 `;
 })
 .catch(()=>{
