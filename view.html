@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Invoice Verification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>Invoice Details</h2>
+  <div id="invoiceData">Loading...</div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const inv = params.get("inv");
+
+if(!inv){
+  document.getElementById("invoiceData").innerHTML = 
+  "<span style='color:red;'>Invalid QR</span>";
+} else {
+
+  fetch("invoices/" + inv + ".json")
+  .then(res => {
+      if(!res.ok) throw new Error("Not Found");
+      return res.json();
+  })
+  .then(data => {
+      document.getElementById("invoiceData").innerHTML = `
+        <p><b>Status:</b> <span style="color:green;">Verified ✓</span></p>
+        <p><b>Customer:</b> ${data.customer}</p>
+        <p><b>Item:</b> ${data.item}</p>
+        <p><b>Colour:</b> ${data.colour}</p>
+        <p><b>Total Amount:</b> ₹ ${data.amount}</p>
+      `;
+  })
+  .catch(() => {
+      document.getElementById("invoiceData").innerHTML = 
+      "<span style='color:red;'>Invoice Not Found ❌</span>";
+  });
+}
+</script>
+
+</body>
+</html>
