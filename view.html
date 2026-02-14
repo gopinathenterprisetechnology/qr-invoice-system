@@ -70,18 +70,17 @@ document.getElementById("invoiceData").innerHTML = `
 <div style="background:#1e3a8a; color:white; padding:20px; border-radius:6px;">
 
   <div style="display:flex; align-items:center;">
-
-    <!-- Left Logo -->
-    <div style="width:150px; text-align:left;">
-      <img src="logo-left.png" style="height:130px;">
-    </div>
+<!-- Left Logo -->
+<div style="width:150px; text-align:left;">
+<img src="logo-left.png" style="height:130px;">
+</div>
 
     <!-- Center Shop Details -->
     <div style="flex:1; text-align:center;">
       <h2 style="margin:0;">GOPINATH ENTERPRISE & TECHNOLOGY</h2>
       <p style="margin:2px 0; font-weight:bold;">CYBER CAFE & MOBILE SHOP</p>
       <p style="margin:2px 0;">
-        All Type of Mobile, Accessories, Headphone, Earbuds, Neckband Sales & Services
+        All Types of Mobile, Accessories, Headphones, Earbuds, Neckband Sales & Services
       </p>
       <p style="margin:2px 0;">
         Dakshin Rasulpur, Arambagh, Hooghly, West Bengal - 712413
@@ -101,7 +100,7 @@ document.getElementById("invoiceData").innerHTML = `
       Email: gopinathenterprisetechnology@gmail.com
     </div>
     <div>
-      Mobile: 9339225562 / 8001901640
+      Contact No : 9339225562 / 8001901640
     </div>
   </div>
 
@@ -135,17 +134,17 @@ document.getElementById("invoiceData").innerHTML = `
 
 
 <div class="section">
-<b>Customer:</b> ${data.customer.name}<br>
-<b>Address:</b> ${data.customer.address}<br>
-<b>Place of Supply:</b> ${data.customer.address}<br>
-<b>Mobile:</b> ${data.customer.mobile}
+<b>Customer Name :</b> ${data.customer.name}<br>
+<b>Address :</b> ${data.customer.address}<br>
+<b>Place of Supply :</b> ${data.customer.address}<br>
+<b>Contact No :</b> ${data.customer.mobile}
 </div>
 <br>
 <table>
 <tr>
 <th>Sl No</th>
-<th>Description</th>
-<th>Qty</th>
+<th>Descriptions of Goods</th>
+<th>Qnty</th>
 <th>Rate</th>
 <th>Amount</th>
 </tr>
@@ -158,17 +157,25 @@ ${itemsHTML}
 <td class="right">${data.total.total_amount}</td>
 </tr>
 <tr>
-<td class="right bold">Paid Amount :</td>
-<td class="right">${data.total.paid}</td>
+<td class="right bold"> Round off:</td>
+<td class="right">${data.total.round_off}</td>
+</tr>
+<tr>
+<td class="right bold">Net Amount :</td>
+<td class="right">${data.total.net}</td>
 </tr>
 <tr>
 <td class="right bold">Due Amount :</td>
 <td class="right">${data.total.due}</td>
 </tr>
+<tr>
+<td class="right bold">Paid Amount :</td>
+<td class="right">${data.total.paid}</td>
+</tr>
 </table>
 <br>
 <div class="section">
-<b>Rupees In Words:</b> ${data.total.words}
+<b>Total Amount Rupees In Words:</b> ${data.total.words}
 </div>
 <div class="section">
 <b>Description:</b> ${data.description}</div>
@@ -177,7 +184,9 @@ ${itemsHTML}
 <div>
 <b>Terms & Conditions:</b><br>
 1. Goods once sold not taken back.<br>
-2. Warranty as per company policy.
+2. Warrenty of all Items Covered by the Principle.<br>
+3. Payment 100% against delivery and Installation.<br>
+4. Warrenty not covered in case of physical damage or internal damage.
 </div>
 <div style="text-align:right;">
 Authorised Signature
