@@ -1,65 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Invoice Verification</title>
-  <link rel="stylesheet" href="style.css">
+<title>Invoice Verification</title>
+<style>
+body{
+  font-family: Arial;
+  background:#f5f5f5;
+}
+.bill{
+  width:800px;
+  margin:20px auto;
+  background:white;
+  padding:20px;
+  border:2px solid black;
+}
+.header{
+  text-align:center;
+  font-weight:bold;
+  font-size:18px;
+}
+.section{
+  border:1px solid black;
+  padding:5px;
+  margin-top:5px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+table, th, td{
+  border:1px solid black;
+}
+th,td{
+  padding:5px;
+  font-size:14px;
+}
+.right{
+  text-align:right;
+}
+.bold{
+  font-weight:bold;
+}
+</style>
 </head>
 <body>
 
-<div class="card">
-  <h2>Invoice Verification</h2>
-  <div id="invoiceData">Loading...</div>
-</div>
+<div id="invoiceData">Loading...</div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 const inv = params.get("inv");
 
 if(!inv){
-  document.getElementById("invoiceData").innerHTML =
-  "<span style='color:red;'>Invalid QR ❌</span>";
-} else {
+ document.getElementById("invoiceData").innerHTML="Invalid QR ❌";
+}else{
 
-fetch("invoices/" + inv + ".json")
-.then(res => {
-  if(!res.ok) throw new Error("Not Found");
-  return res.json();
+fetch("invoices/"+inv+".json")
+.then(res=>{
+ if(!res.ok) throw new Error();
+ return res.json();
 })
-.then(data => {
+.then(data=>{
 
-let itemsHTML = "";
-
-data.items.forEach(item => {
-  itemsHTML += `
-  <tr>
-    <td>${item.name}</td>
-    <td>${item.colour}</td>
-    <td>${item.qty}</td>
-    <td>₹ ${item.rate}</td>
-    <td>₹ ${item.amount}</td>
-  </tr>`;
+let itemsHTML="";
+data.items.forEach((item,i)=>{
+itemsHTML+=`
+<tr>
+<td>${i+1}</td>
+<td>${item.name}<br>Colour: ${item.colour}</td>
+<td>${item.qty}</td>
+<td>${item.rate}</td>
+<td>${item.amount}</td>
+</tr>`;
 });
 
-document.getElementById("invoiceData").innerHTML = `
-<p style="color:green;"><b>Verified ✓</b></p>
+document.getElementById("invoiceData").innerHTML=`
 
-<p><b>Shop:</b> ${data.shop.name}</p>
-<p><b>Invoice No:</b> ${data.invoice.number}</p>
-<p><b>Date:</b> ${data.invoice.date}</p>
-<p><b>Payment:</b> ${data.invoice.payment_type}</p>
+<div class="bill">
 
-<hr>
+<div class="header">
+${data.shop.name}
+</div>
 
-<p><b>Customer:</b> ${data.customer.name}</p>
-<p><b>Address:</b> ${data.customer.address}</p>
-<p><b>Mobile:</b> ${data.customer.mobile}</p>
+<div class="section">
+<b>Invoice No:</b> ${data.invoice.number}
+<span style="float:right;"><b>Date:</b> ${data.invoice.date}</span>
+</div>
 
-<hr>
+<div class="section">
+<b>Customer:</b> ${data.customer.name}<br>
+<b>Address:</b> ${data.customer.address}<br>
+<b>Mobile:</b> ${data.customer.mobile}
+</div>
 
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<table>
 <tr>
-<th>Item</th>
-<th>Colour</th>
+<th>Sl No</th>
+<th>Description</th>
 <th>Qty</th>
 <th>Rate</th>
 <th>Amount</th>
@@ -67,17 +104,54 @@ document.getElementById("invoiceData").innerHTML = `
 ${itemsHTML}
 </table>
 
-<hr>
+<br>
 
-<p><b>Total:</b> ₹ ${data.total.total_amount}</p>
-<p><b>Paid:</b> ₹ ${data.total.paid}</p>
-<p><b>Due:</b> ₹ ${data.total.due}</p>
+<table>
+<tr>
+<td class="right bold">Total Amount :</td>
+<td class="right">${data.total.total_amount}</td>
+</tr>
+<tr>
+<td class="right bold">Paid Amount :</td>
+<td class="right">${data.total.paid}</td>
+</tr>
+<tr>
+<td class="right bold">Due Amount :</td>
+<td class="right">${data.total.due}</td>
+</tr>
+</table>
+
+<br>
+
+<div class="section">
+<b>Rupees In Words:</b> ${data.total.words}
+</div>
+
+<div class="section">
+<b>Description:</b> ${data.description}
+</div>
+
+<br><br>
+
+<div style="display:flex; justify-content:space-between;">
+<div>
+<b>Terms & Conditions:</b><br>
+1. Goods once sold not taken back.<br>
+2. Warranty as per company policy.
+</div>
+
+<div style="text-align:right;">
+For ${data.shop.name}<br><br>
+Authorised Signature
+</div>
+</div>
+
+</div>
 `;
 
 })
-.catch(() => {
-document.getElementById("invoiceData").innerHTML =
-"<span style='color:red;'>Invoice Not Found ❌</span>";
+.catch(()=>{
+document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 });
 }
 </script>
