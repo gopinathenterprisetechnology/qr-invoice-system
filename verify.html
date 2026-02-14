@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Invoice Verification</title>
+<style>
+body {font-family: Arial; background:#f4f4f4; padding:20px;}
+.card {background:white; padding:20px; border-radius:10px; max-width:500px; margin:auto; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h2 {color:#2c3e50;}
+.logo {text-align:center; font-size:22px; font-weight:bold; margin-bottom:15px;}
+.item {margin-bottom:8px;}
+.total {font-weight:bold; color:green;}
+</style>
+</head>
+<body>
+
+<div class="card">
+<div class="logo">Gopinath Enterprise</div>
+<h2>Invoice Details</h2>
+
+<div id="content"></div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const name = params.get("name");
+const item = params.get("item");
+const amount = params.get("amount");
+const color = params.get("color");
+
+document.getElementById("content").innerHTML = `
+<div class="item"><b>Customer:</b> ${name}</div>
+<div class="item"><b>Item:</b> ${item}</div>
+<div class="item"><b>Colour:</b> ${color}</div>
+<div class="item total"><b>Total Amount:</b> ₹ ${amount}</div>
+`;
+</script>
+
+</body>
+</html>
