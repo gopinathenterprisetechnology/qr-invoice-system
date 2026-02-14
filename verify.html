@@ -1,35 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Invoice Verification</title>
-<style>
-body {font-family: Arial; background:#f4f4f4; padding:20px;}
-.card {background:white; padding:20px; border-radius:10px; max-width:500px; margin:auto; box-shadow:0 0 10px rgba(0,0,0,0.1);}
-h2 {color:#2c3e50;}
-.item {margin-bottom:8px;}
-.total {font-weight:bold; color:green;}
-</style>
+  <title>Invoice Verification</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="card">
-<h2>Invoice Details</h2>
-<div id="content"></div>
+  <h2>Invoice Verification</h2>
+  <div id="invoiceData">Loading...</div>
 </div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-const item = params.get("item");
-const color = params.get("color");
-const amount = params.get("amount");
+const inv = params.get("inv");
 
-document.getElementById("content").innerHTML = `
-<div><b>Customer:</b> ${name}</div>
-<div><b>Item:</b> ${item}</div>
-<div><b>Colour:</b> ${color}</div>
-<div class="total"><b>Total Amount:</b> ₹ ${amount}</div>
+if(!inv){
+  document.getElementById("invoiceData").innerHTML =
+  "<span style='color:red;'>Invalid QR ❌</span>";
+} else {
+
+fetch("invoices/" + inv + ".json")
+.then(res => {
+  if(!res.ok) throw new Error("Not Found");
+  return res.json();
+})
+.then(data => {
+
+let itemsHTML = "";
+
+data.items.forEach(item => {
+  itemsHTML += `
+  <tr>
+    <td>${item.name}</td>
+    <td>${item.colour}</td>
+    <td>${item.qty}</td>
+    <td>₹ ${item.rate}</td>
+    <td>₹ ${item.amount}</td>
+  </tr>`;
+});
+
+document.getElementById("invoiceData").innerHTML = `
+<p style="color:green;"><b>Verified ✓</b></p>
+
+<p><b>Shop:</b> ${data.shop.name}</p>
+<p><b>Invoice No:</b> ${data.invoice.number}</p>
+<p><b>Date:</b> ${data.invoice.date}</p>
+<p><b>Payment:</b> ${data.invoice.payment_type}</p>
+
+<hr>
+
+<p><b>Customer:</b> ${data.customer.name}</p>
+<p><b>Address:</b> ${data.customer.address}</p>
+<p><b>Mobile:</b> ${data.customer.mobile}</p>
+
+<hr>
+
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<tr>
+<th>Item</th>
+<th>Colour</th>
+<th>Qty</th>
+<th>Rate</th>
+<th>Amount</th>
+</tr>
+${itemsHTML}
+</table>
+
+<hr>
+
+<p><b>Total:</b> ₹ ${data.total.total_amount}</p>
+<p><b>Paid:</b> ₹ ${data.total.paid}</p>
+<p><b>Due:</b> ₹ ${data.total.due}</p>
 `;
+
+})
+.catch(() => {
+document.getElementById("invoiceData").innerHTML =
+"<span style='color:red;'>Invoice Not Found ❌</span>";
+});
+}
 </script>
 
 </body>
