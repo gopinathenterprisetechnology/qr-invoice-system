@@ -53,18 +53,35 @@ fetch("invoices/" + invoiceNo + ".json")
  return response.json();
 })
 .then(data=>{
+
+  
 let itemsHTML = "";
 data.items.forEach((item,index)=>{
- itemsHTML += `
- <tr>
-   <td>${index+1}</td>
-   <td>${item.name}</td>
-   <td>${item.qty}</td>
-   <td>${item.rate}</td>
-   <td>${item.amount}</td>
- </tr>
- `;
+
+let subDetails = "";
+
+if(item.model) subDetails += `<div style="font-size:11px;">Model No: ${item.model}</div>`;
+if(item.colour) subDetails += `<div style="font-size:11px;">Colour: ${item.colour}</div>`;
+if(item.ram) subDetails += `<div style="font-size:11px;">RAM: ${item.ram}</div>`;
+if(item.rom) subDetails += `<div style="font-size:11px;">ROM: ${item.rom}</div>`;
+if(item.imei1) subDetails += `<div style="font-size:11px;">IMEI 1: ${item.imei1}</div>`;
+if(item.imei2) subDetails += `<div style="font-size:11px;">IMEI 2: ${item.imei2}</div>`;
+
+itemsHTML += `
+<tr>
+  <td>${index+1}</td>
+  <td style="text-align:left;">
+    <b>${item.name || ""}</b>
+    ${subDetails}
+  </td>
+  <td>${item.qty || ""}</td>
+  <td>${item.rate || ""}</td>
+  <td>${item.amount || ""}</td>
+</tr>
+`;
 });
+
+  
 document.getElementById("invoiceData").innerHTML = `
 
 <div style="background:#1e3a8a; color:white; padding:20px; border-radius:6px;">
@@ -173,35 +190,8 @@ document.getElementById("invoiceData").innerHTML = `
 </div>
 </div>
 <br>
-let itemsHTML = "";
-data.items.forEach((item,index)=>{
-
-let subDetails = "";
-
-if(item.model) subDetails += `<div style="font-size:11px;">Model No: ${item.model}</div>`;
-if(item.colour) subDetails += `<div style="font-size:11px;">Colour: ${item.colour}</div>`;
-if(item.ram) subDetails += `<div style="font-size:11px;">RAM: ${item.ram}</div>`;
-if(item.rom) subDetails += `<div style="font-size:11px;">ROM: ${item.rom}</div>`;
-if(item.imei1) subDetails += `<div style="font-size:11px;">IMEI 1: ${item.imei1}</div>`;
-if(item.imei2) subDetails += `<div style="font-size:11px;">IMEI 2: ${item.imei2}</div>`;
-
-itemsHTML += `
-<tr>
-  <td>${index+1}</td>
-  <td style="text-align:left;">
-    <b>${item.name || ""}</b>
-    ${subDetails}
-  </td>
-  <td>${item.qty || ""}</td>
-  <td>${item.rate || ""}</td>
-  <td>${item.amount || ""}</td>
-</tr>
-`;
-});
 
 
-
-<br>
 <table>
 <tr>
 <td class="right bold">Total Amount :</td>
