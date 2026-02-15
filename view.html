@@ -59,7 +59,12 @@ let itemsHTML = "";
 data.items.forEach((item,index)=>{
 
 let subDetails = "";
-
+let model  = item.model || item.model_no || "";
+let colour = item.colour || item.color || "";
+let ram    = item.ram || item.ram_size || "";
+let rom    = item.rom || item.storage || "";
+let imei1  = item.imei1 || item.imei_1 || "";
+let imei2  = item.imei2 || item.imei_2 || "";
 if(item.model) subDetails += `<div style="font-size:11px;">Model No: ${item.model}</div>`;
 if(item.colour) subDetails += `<div style="font-size:11px;">Colour: ${item.colour}</div>`;
 if(item.ram) subDetails += `<div style="font-size:11px;">RAM: ${item.ram}</div>`;
