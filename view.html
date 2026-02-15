@@ -45,6 +45,8 @@ if(!invoiceNo){
  document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 }
 else{
+  console.log("Invoice No:", invoiceNo);
+
 fetch("invoices/" + invoiceNo + ".json")
 .then(response=>{
  if(!response.ok){ throw new Error("Not Found"); }
