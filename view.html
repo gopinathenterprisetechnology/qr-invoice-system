@@ -52,39 +52,41 @@ fetch("invoices/" + invoiceNo + ".json")
  if(!response.ok){ throw new Error("Not Found"); }
  return response.json();
 })
-.then(data=>{
 
   
 let itemsHTML = "";
 data.items.forEach((item,index)=>{
 
 let subDetails = "";
+
 let model  = item.model || item.model_no || "";
 let colour = item.colour || item.color || "";
 let ram    = item.ram || item.ram_size || "";
 let rom    = item.rom || item.storage || "";
 let imei1  = item.imei1 || item.imei_1 || "";
 let imei2  = item.imei2 || item.imei_2 || "";
-if(item.model) subDetails += `<div style="font-size:11px;">Model No: ${item.model}</div>`;
-if(item.colour) subDetails += `<div style="font-size:11px;">Colour: ${item.colour}</div>`;
-if(item.ram) subDetails += `<div style="font-size:11px;">RAM: ${item.ram}</div>`;
-if(item.rom) subDetails += `<div style="font-size:11px;">ROM: ${item.rom}</div>`;
-if(item.imei1) subDetails += `<div style="font-size:11px;">IMEI 1: ${item.imei1}</div>`;
-if(item.imei2) subDetails += `<div style="font-size:11px;">IMEI 2: ${item.imei2}</div>`;
+
+if(model)  subDetails += `<div style="font-size:11px;">Model No: ${model}</div>`;
+if(colour) subDetails += `<div style="font-size:11px;">Colour: ${colour}</div>`;
+if(ram)    subDetails += `<div style="font-size:11px;">RAM: ${ram}</div>`;
+if(rom)    subDetails += `<div style="font-size:11px;">ROM: ${rom}</div>`;
+if(imei1)  subDetails += `<div style="font-size:11px;">IMEI 1: ${imei1}</div>`;
+if(imei2)  subDetails += `<div style="font-size:11px;">IMEI 2: ${imei2}</div>`;
 
 itemsHTML += `
 <tr>
-  <td>${index+1}</td>
-  <td style="text-align:left;">
-    <b>${item.name || ""}</b>
-    ${subDetails}
-  </td>
-  <td>${item.qty || ""}</td>
-  <td>${item.rate || ""}</td>
-  <td>${item.amount || ""}</td>
+<td>${index+1}</td>
+<td style="text-align:left;">
+<b>${item.name || ""}</b>
+${subDetails}
+</td>
+<td>${item.qty || ""}</td>
+<td>${item.rate || ""}</td>
+<td>${item.amount || ""}</td>
 </tr>
 `;
 });
+
 
   
 document.getElementById("invoiceData").innerHTML = `
