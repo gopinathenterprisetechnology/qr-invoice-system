@@ -176,27 +176,27 @@ data.items.forEach((item,index)=>{
 
 let subDetails = "";
 
-// Safe optional check
-if(item.model_no) subDetails += `<div style="font-size:11px; margin-left:10px;">Model No: ${item.model_no}</div>`;
-if(item.colour) subDetails += `<div style="font-size:11px; margin-left:10px;">Colour: ${item.colour}</div>`;
-if(item.ram) subDetails += `<div style="font-size:11px; margin-left:10px;">RAM: ${item.ram}</div>`;
-if(item.rom) subDetails += `<div style="font-size:11px; margin-left:10px;">ROM: ${item.rom}</div>`;
-if(item.imei_1) subDetails += `<div style="font-size:11px; margin-left:10px;">IMEI 1: ${item.imei_1}</div>`;
-if(item.imei_2) subDetails += `<div style="font-size:11px; margin-left:10px;">IMEI 2: ${item.imei_2}</div>`;
+if(item.model) subDetails += `<div style="font-size:11px;">Model No: ${item.model}</div>`;
+if(item.colour) subDetails += `<div style="font-size:11px;">Colour: ${item.colour}</div>`;
+if(item.ram) subDetails += `<div style="font-size:11px;">RAM: ${item.ram}</div>`;
+if(item.rom) subDetails += `<div style="font-size:11px;">ROM: ${item.rom}</div>`;
+if(item.imei1) subDetails += `<div style="font-size:11px;">IMEI 1: ${item.imei1}</div>`;
+if(item.imei2) subDetails += `<div style="font-size:11px;">IMEI 2: ${item.imei2}</div>`;
 
 itemsHTML += `
 <tr>
   <td>${index+1}</td>
   <td style="text-align:left;">
-    <b>${item.name}</b>
+    <b>${item.name || ""}</b>
     ${subDetails}
   </td>
-  <td>${item.qty}</td>
-  <td>${item.rate}</td>
-  <td>${item.amount}</td>
+  <td>${item.qty || ""}</td>
+  <td>${item.rate || ""}</td>
+  <td>${item.amount || ""}</td>
 </tr>
 `;
 });
+
 
 
 <br>
