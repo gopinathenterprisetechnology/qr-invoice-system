@@ -56,6 +56,7 @@ fetch("invoices/" + invoiceNo + ".json")
 })
 
 .then(data=>{  
+console.log("DATA:", data);
 let itemsHTML = "";
 if (data.items && Array.isArray(data.items)) {
 
@@ -200,7 +201,7 @@ document.getElementById("invoiceData").innerHTML = `
 <div class="section">
 <b>Customer Name :</b> ${data.customer.name}<br>
 <b>Address :</b> ${data.customer.address}<br>
-<b>Place of Supply :</b> ${data.customer.address}<br>
+<b>Place of Supply :</b> ${data.customer.place_of_supply}<br>
 <b>Contact No :</b> ${data.customer.mobile}
 </div>
 </div>
