@@ -47,7 +47,8 @@ if(!invoiceNo){
 else{
   console.log("Invoice No:", invoiceNo);
 
-fetch("https://gopinathenterprisetechnology.github.io/qr-invoice-system/invoices/" + invoiceNo + ".json")
+fetch("invoices/" + invoiceNo + ".json")
+
 
 .then(response=>{
  if(!response.ok){ throw new Error("Not Found"); }
