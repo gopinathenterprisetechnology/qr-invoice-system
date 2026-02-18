@@ -199,14 +199,17 @@ document.getElementById("invoiceData").innerHTML = `
 <br>
 
 <table>
+itemsHTML += `
 <tr>
-<th>Sl No</th>
-<th>Descriptions of Goods</th>
-<th>Qnty</th>
-<th>MRP</th>
-<th>Rate</th>
-<th>Amount</th>
+  <td>${item.sl_no}</td>
+  <td>${item.name}</td>
+  <td>${item.qty}</td>
+  <td>${item.mrp}</td>
+  <td>${item.rate}</td>
+  <td>${item.amount}</td>
 </tr>
+`;
+
 ${itemsHTML}
 </table>
 <br>
