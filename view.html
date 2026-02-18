@@ -57,6 +57,8 @@ fetch("invoices/" + invoiceNo + ".json")
 
 .then(data=>{  
 let itemsHTML = "";
+if (data.items && Array.isArray(data.items)) {
+
 data.items.forEach((item,index)=>{
 
 let subDetails = "";
@@ -88,6 +90,10 @@ ${subDetails}
 </tr>
 `;
 });
+
+} else {
+   console.log("Items not found in JSON");
+}
 
 
   
