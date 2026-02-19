@@ -300,7 +300,8 @@ ${itemsHTML}
       <!-- QR -->
       <div style="width:30%; text-align:center;">
         <b>Scan & Pay</b><br>
-        <img src="${data.payment_qr}" style="height:110px;">
+       <img src="${data.payment_qr || ''}" style="height:110px;">
+
       </div>
 
     </div>
@@ -318,9 +319,11 @@ ${itemsHTML}
       
 `;
 })
-.catch(()=>{
-document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
+.catch((error)=>{
+  console.log("ERROR FOUND:", error);
+  document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 });
+
 }
 </script>
 </body>
