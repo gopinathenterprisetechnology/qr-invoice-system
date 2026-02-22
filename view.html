@@ -126,6 +126,8 @@ ${subDetails}
   
 document.getElementById("invoiceData").innerHTML = `
 
+generateQR(data);
+
 <div style="background:#1e3a8a; color:white; padding:20px; border-radius:6px;">
 
   <div style="display:flex; align-items:center;">
@@ -323,7 +325,7 @@ ${itemsHTML}
   <img id="paymentQR" style="height:110px;">
 </div>
 
-generateQR(data);
+
     </div>
 
     <!-- Authorised Signature -->
