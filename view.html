@@ -51,7 +51,7 @@ function generateQR(data) {
   const upiID = "boism-8001901640@boi";  
   const name = "GOPINATH ENTERPRISE";
 
-  const noteText = `Invoice-${invoiceNo} | ${customerName} | ${customerMobile}`;
+  const noteText = `${invoiceNo} | ${customerName} | ${customerMobile}`;
 
   const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=${encodeURIComponent(noteText)}`;
 
