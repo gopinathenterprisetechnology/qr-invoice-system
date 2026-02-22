@@ -55,7 +55,7 @@ function generateQR(data) {
 
   const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=${encodeURIComponent(noteText)}`;
 
-  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=95x95&data=${encodeURIComponent(upiURL)}`;
+  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=85x85&data=${encodeURIComponent(upiURL)}`;
 
   document.getElementById("paymentQR").src = qrURL;
 }
