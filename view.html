@@ -38,6 +38,25 @@ th,td{
 <div class="bill" id="invoiceData">
 Loading Invoice...
 </div>
+
+ <script>
+function generateQR(data) {
+
+  const netAmount = data.total.net;
+  const invoiceNo = data.invoice.number;
+
+  // 🔹 তোমার UPI ID এখানে বসাও
+  const upiID = "boism-8001901640@boi";  
+  const name = "GOPINATH ENTERPRISE";
+
+  const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=Invoice-${invoiceNo}`;
+
+  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURL)}`;
+
+  document.getElementById("paymentQR").src = qrURL;
+}
+</script>
+  
 <script>
 const params = new URLSearchParams(window.location.search);
 let invoiceNo = params.get("inv");
@@ -303,24 +322,7 @@ ${itemsHTML}
   <b>Scan & Pay</b><br>
   <img id="paymentQR" style="height:110px;">
 </div>
-<script>
-function generateQR(data) {
 
-  const netAmount = data.total.net;
-  const invoiceNo = data.invoice.number;
-
-  // 🔹 তোমার UPI ID এখানে বসাও
-  const upiID = "boism-8001901640@boi";  
-  const name = "GOPINATH ENTERPRISE";
-
-  const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=Invoice-${invoiceNo}`;
-
-  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURL)}`;
-
-  document.getElementById("paymentQR").src = qrURL;
-}
-</script>
-  
 generateQR(data);
     </div>
 
