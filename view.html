@@ -51,7 +51,7 @@ function generateQR(data) {
   const upiID = "boism-8001901640@boi";  
   const name = "GOPINATH ENTERPRISE";
 
-  const noteText = `${invoiceNo} | ${customerName} | ${customerMobile}`;
+  const noteText = `${invoiceNo} | ${customerName}`;
 
   const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=${encodeURIComponent(noteText)}`;
 
@@ -284,7 +284,7 @@ ${itemsHTML}
 
 <br>
 
-<div style="display:flex; width:100%; margin-top:20px;">
+<div style="display:flex; width:100%; margin-top:20px; align-items:stretch;">
 
   <!-- LEFT COLUMN -->
   <div style="width:50%;">
@@ -309,10 +309,10 @@ ${itemsHTML}
 
 
   <!-- RIGHT COLUMN -->
-  <div style="width:50%;">
+  <div style="width:50%; display:flex; flex-direction:column;">
 
     <!-- Bank Details + QR -->
-    <div style="border:2px solid black; padding:10px; display:flex; justify-content:space-between; align-items:center;">
+   <div style="border:2px solid black; padding:10px; display:flex; justify-content:space-between; align-items:flex-start;">
 
       <!-- Bank Details -->
       <div style="width:65%;">
