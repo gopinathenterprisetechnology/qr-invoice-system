@@ -59,7 +59,7 @@ console.log("FETCH URL:", "https://gopinathenterprisetechnology.github.io/qr-inv
 fetch("invoices/" + invoiceNo + ".json")
 
 .then(response => response.json())
-generateQR(data);
+
 
 .then(data=>{  
 console.log("DATA:", data);
@@ -102,7 +102,7 @@ ${subDetails}
 } else {
    console.log("Items not found in JSON");
 }
-
+generateQR(data);
 
   
 document.getElementById("invoiceData").innerHTML = `
