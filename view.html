@@ -115,9 +115,9 @@ itemsHTML += `
 ${subDetails}
 </td>
 <td>${item.qty || ""}</td>
-<td>${item.mrp || ""}</td>
-<td>${item.rate || ""}</td>
-<td>${item.amount || ""}</td>
+<td>${Number(item.mrp || 0).toFixed(2)}</td>
+<td>${Number(item.rate || 0).toFixed(2)}</td>
+<td>${Number(item.amount || 0).toFixed(2)}</td>
 </tr>
 `;
 });
