@@ -59,7 +59,7 @@ console.log("FETCH URL:", "https://gopinathenterprisetechnology.github.io/qr-inv
 fetch("invoices/" + invoiceNo + ".json")
 
 .then(response => response.json())
-
+generateQR(data);
 
 .then(data=>{  
 console.log("DATA:", data);
@@ -298,13 +298,23 @@ ${itemsHTML}
         A/C Type: Current<br>
         IFSC: BKID0004254
       </div>
+<script>
+function generateQR(data) {
 
-      <!-- QR -->
-      <div style="width:30%; text-align:center;">
-        <b>Scan & Pay</b><br>
-       <img src="${data.payment_qr || ''}" style="height:110px;">
+  const netAmount = data.total.net;
+  const invoiceNo = data.invoice.number;
 
-      </div>
+  // 🔹 তোমার UPI ID এখানে বসাও
+  const upiID = "boism-8001901640@boi";  
+  const name = "GOPINATH ENTERPRISE";
+
+  const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=Invoice-${invoiceNo}`;
+
+  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURL)}`;
+
+  document.getElementById("paymentQR").src = qrURL;
+}
+</script>
 
     </div>
 
