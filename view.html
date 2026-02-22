@@ -51,7 +51,7 @@ function generateQR(data) {
 
   const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${netAmount}&cu=INR&tn=Invoice-${invoiceNo}`;
 
-  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURL)}`;
+  const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=95x95&data=${encodeURIComponent(upiURL)}`;
 
   document.getElementById("paymentQR").src = qrURL;
 }
@@ -126,7 +126,7 @@ ${subDetails}
   
 document.getElementById("invoiceData").innerHTML = `
 
-generateQR(data);
+
 
 <div style="background:#1e3a8a; color:white; padding:20px; border-radius:6px;">
 
@@ -339,6 +339,7 @@ ${itemsHTML}
 
       
 `;
+  generateQR(data);
 })
 .catch((error)=>{
   console.log("ERROR FOUND:", error);
