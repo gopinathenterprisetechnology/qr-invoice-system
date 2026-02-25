@@ -39,6 +39,8 @@ th,td{
 Loading Invoice...
 </div>
 
+  <div id="invoiceFooter"></div>
+  
  <script>
 function generateQR(data) {
 
@@ -339,7 +341,51 @@ ${itemsHTML}
 
   </div>
   </div>
-<style>
+
+
+  <style>
+.watermark-footer{
+  margin-top:15px;
+  text-align:center;
+  font-size:11px;
+  color:#888;
+  letter-spacing:0.5px;
+  position:relative;
+}
+
+.watermark-footer span{
+  opacity:0.8;
+}
+
+.watermark-footer::before{
+  content:"";
+  display:block;
+  height:1px;
+  width:60%;
+  background:linear-gradient(to right, transparent, #ccc, transparent);
+  margin:10px auto;
+}
+</style>
+
+<div class="watermark-footer">
+  <span>Powered by Official Digital Billing System</span><br>
+  <span>© 2026 GOPINATH ENTERPRISE & TECHNOLOGY • All Rights Reserved</span>
+</div>
+
+</div>
+
+
+      
+`;
+  
+console.log("QR Calling...");
+  generateQR(data);
+})
+.catch((error)=>{
+  console.log("ERROR FOUND:", error);
+  document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
+
+  <style>
 .secure-badge-wrapper{
   margin-top:25px;
   text-align:center;
@@ -401,48 +447,6 @@ ${itemsHTML}
   <div class="secure-badge">
     🔒 SECURE • ✔ VERIFIED • 🧾 OFFICIAL BILL
   </div>
-
-  <style>
-.watermark-footer{
-  margin-top:15px;
-  text-align:center;
-  font-size:11px;
-  color:#888;
-  letter-spacing:0.5px;
-  position:relative;
-}
-
-.watermark-footer span{
-  opacity:0.8;
-}
-
-.watermark-footer::before{
-  content:"";
-  display:block;
-  height:1px;
-  width:60%;
-  background:linear-gradient(to right, transparent, #ccc, transparent);
-  margin:10px auto;
-}
-</style>
-
-<div class="watermark-footer">
-  <span>Powered by Official Digital Billing System</span><br>
-  <span>© 2026 GOPINATH ENTERPRISE & TECHNOLOGY • All Rights Reserved</span>
-</div>
-
-</div>
-
-
-      
-`;
-  
-console.log("QR Calling...");
-  generateQR(data);
-})
-.catch((error)=>{
-  console.log("ERROR FOUND:", error);
-  document.getElementById("invoiceData").innerHTML="Invoice Not Found ❌";
 });
 
 }
