@@ -39,8 +39,6 @@ th,td{
 Loading Invoice...
 </div>
 
-<div id="invoiceFooter"></div>
-
 
   <style>
 .secure-badge-wrapper{
@@ -105,7 +103,36 @@ Loading Invoice...
     🔒 SECURE • ✔ VERIFIED • 🧾 OFFICIAL BILL
   </div>
 
+<style>
+.watermark-footer{
+  margin-top:15px;
+  text-align:center;
+  font-size:11px;
+  color:#888;
+  letter-spacing:0.5px;
+  position:relative;
+}
 
+.watermark-footer span{
+  opacity:0.8;
+}
+
+.watermark-footer::before{
+  content:"";
+  display:block;
+  height:1px;
+  width:60%;
+  background:linear-gradient(to right, transparent, #ccc, transparent);
+  margin:10px auto;
+}
+</style>
+
+<div class="watermark-footer">
+  <span>Powered by Official Digital Billing System</span><br>
+  <span>© 2026 GOPINATH ENTERPRISE & TECHNOLOGY • All Rights Reserved</span>
+</div>
+
+</div>
 
   
   
@@ -116,7 +143,7 @@ function generateQR(data) {
   const netAmount = data.total.net;
   const invoiceNo = data.invoice.number;
 
-  const cust<div id="invoiceFooter"></div>omerName = data.customer.name || "";
+  const customerName = data.customer.name || "";
   const customerMobile = data.customer.mobile || "";
 
   const upiID = "boism-8001901640@boi";  
@@ -412,36 +439,7 @@ ${itemsHTML}
   </div>
 
 
-  <style>
-.watermark-footer{
-  margin-top:15px;
-  text-align:center;
-  font-size:11px;
-  color:#888;
-  letter-spacing:0.5px;
-  position:relative;
-}
-
-.watermark-footer span{
-  opacity:0.8;
-}
-
-.watermark-footer::before{
-  content:"";
-  display:block;
-  height:1px;
-  width:60%;
-  background:linear-gradient(to right, transparent, #ccc, transparent);
-  margin:10px auto;
-}
-</style>
-
-<div class="watermark-footer">
-  <span>Powered by Official Digital Billing System</span><br>
-  <span>© 2026 GOPINATH ENTERPRISE & TECHNOLOGY • All Rights Reserved</span>
-</div>
-
-</div>
+  
 
 
       
