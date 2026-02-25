@@ -72,6 +72,19 @@ table {
     background:white;
     padding:0;
   }
+  @media print {
+
+  *{
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  thead th{
+    background-color:#f2f2f2 !important;
+    color:#000 !important;
+  }
+
+  }
 
   /* 🔴 সব hide করে দিচ্ছি */
   body *{
@@ -94,7 +107,7 @@ table {
 
   /* ❌ এগুলো কখনোই print হবে না */
   .no-print,
-  .invoice-actions,
+  
   .secure-badge-wrapper,
   .authorised-text{
     display:none !important;
