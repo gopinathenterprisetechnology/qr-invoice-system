@@ -1,39 +1,51 @@
-body {
-  font-family: Arial;
-  background: #f5f5f5;
-  padding: 30px;
+/* ============================= */
+/* GLOBAL STYLE */
+/* ============================= */
+
+body{
+  font-family: Arial, sans-serif;
+  background:#f5f5f5;
+  padding:30px;
+  margin:0;
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  max-width: 500px;
-  margin: auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-table {
-  font-size: 14px;
+table{
+  font-size:14px;
+  width:100%;
+  border-collapse:collapse;
 }
 
+th, td{
+  padding:8px;
+  border:1px solid #ddd;
+}
+
+thead th{
+  background:#f2f2f2;
+  font-weight:600;
+}
+
+/* ============================= */
+/* INVOICE CONTAINER */
+/* ============================= */
 
 .bill{
+  background:white;
+  padding:25px;
+  max-width:800px;
+  margin:auto;
   margin-bottom:10px;
-}
-/* Invoice Container */
-.bill {
-  background: white;
-  padding: 25px;
-  max-width: 800px;
-  margin: auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
-/* Button Section */
+/* ============================= */
+/* BUTTON SECTION */
+/* ============================= */
+
 .invoice-actions{
   text-align:right;
   max-width:800px;
-  margin:auto;
-  margin-bottom:15px;
+  margin:0 auto 15px auto;
 }
 
 .pdf-btn{
@@ -45,13 +57,17 @@ table {
   cursor:pointer;
   font-size:13px;
   font-weight:bold;
+  transition:0.3s;
 }
 
 .pdf-btn:hover{
   background:#2563eb;
 }
 
-/* Bottom Note */
+/* ============================= */
+/* FOOTER NOTE */
+/* ============================= */
+
 .invoice-note{
   max-width:800px;
   margin:15px auto;
@@ -60,38 +76,32 @@ table {
   text-align:center;
 }
 
-/* A4 Print Setup */
+/* ============================= */
+/* A4 PRINT SETUP */
+/* ============================= */
+
 @page{
-  size: A4;
-  margin: 15mm;
+  size:A4;
+  margin:15mm;
 }
 
 @media print{
+
+  *{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
 
   body{
     background:white;
     padding:0;
   }
-  @media print {
 
-  *{
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  thead th{
-    background-color:#f2f2f2 !important;
-    color:#000 !important;
-  }
-
-  }
-
-  /* 🔴 সব hide করে দিচ্ছি */
+  /* Only invoice visible */
   body *{
     visibility:hidden;
   }
 
-  /* 🟢 শুধু bill visible */
   .bill, .bill *{
     visibility:visible;
   }
@@ -101,25 +111,17 @@ table {
     left:0;
     top:0;
     width:100%;
-    box-shadow:none;
     margin:0;
+    box-shadow:none;
   }
 
-  /* ❌ এগুলো কখনোই print হবে না */
+  /* Hide these from print */
   .no-print,
-  
+  .invoice-actions,
   .secure-badge-wrapper,
-  .authorised-text{
+  .authorised-text,
+  .watermark-footer{
     display:none !important;
   }
 
-  /* Table header repeat */
-  thead{
-    display: table-header-group;
-  }
-
-  tr{
-    page-break-inside: avoid;
-  }
-
-    }
+}
