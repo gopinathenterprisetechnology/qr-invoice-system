@@ -62,8 +62,8 @@ table {
 
 /* A4 Print Setup */
 @page{
-  size:A4;
-  margin:15mm;
+  size: A4;
+  margin: 15mm;
 }
 
 @media print{
@@ -73,18 +73,40 @@ table {
     padding:0;
   }
 
-  .invoice-actions{
-    display:none;
+  /* 🔴 সব hide করে দিচ্ছি */
+  body *{
+    visibility:hidden;
+  }
+
+  /* 🟢 শুধু bill visible */
+  .bill, .bill *{
+    visibility:visible;
   }
 
   .bill{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
     box-shadow:none;
     margin:0;
-    max-width:100%;
   }
 
-  .invoice-note{
-    font-size:11px;
-    color:#000;
+  /* ❌ এগুলো কখনোই print হবে না */
+  .no-print,
+  .invoice-actions,
+  .secure-badge-wrapper,
+  .authorised-text{
+    display:none !important;
   }
-}
+
+  /* Table header repeat */
+  thead{
+    display: table-header-group;
+  }
+
+  tr{
+    page-break-inside: avoid;
+  }
+
+    }
