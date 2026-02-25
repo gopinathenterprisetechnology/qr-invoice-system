@@ -338,7 +338,99 @@ ${itemsHTML}
     </div>
 
   </div>
+<style>
+.secure-badge-wrapper{
+  margin-top:25px;
+  text-align:center;
+}
 
+.secure-badge{
+  display:inline-block;
+  padding:12px 28px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#1e3a8a,#2563eb,#1e40af);
+  background-size:200% 200%;
+  color:white;
+  font-size:14px;
+  font-weight:bold;
+  letter-spacing:1px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.25);
+  animation:gradientMove 4s ease infinite, pulseGlow 2s infinite;
+  position:relative;
+}
+
+.secure-badge::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-75%;
+  width:50%;
+  height:100%;
+  background:rgba(255,255,255,0.3);
+  transform:skewX(-20deg);
+  animation:shine 3s infinite;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+@keyframes pulseGlow{
+  0%{box-shadow:0 0 8px rgba(37,99,235,0.4);}
+  50%{box-shadow:0 0 18px rgba(37,99,235,0.8);}
+  100%{box-shadow:0 0 8px rgba(37,99,235,0.4);}
+}
+
+@keyframes shine{
+  0%{left:-75%;}
+  100%{left:125%;}
+}
+
+.secure-text{
+  margin-top:10px;
+  font-size:12px;
+  color:#444;
+}
+</style>
+
+<div class="secure-badge-wrapper">
+
+  <div class="secure-badge">
+    🔒 SECURE • ✔ VERIFIED • 🧾 OFFICIAL BILL
+  </div>
+
+  <style>
+.watermark-footer{
+  margin-top:15px;
+  text-align:center;
+  font-size:11px;
+  color:#888;
+  letter-spacing:0.5px;
+  position:relative;
+}
+
+.watermark-footer span{
+  opacity:0.8;
+}
+
+.watermark-footer::before{
+  content:"";
+  display:block;
+  height:1px;
+  width:60%;
+  background:linear-gradient(to right, transparent, #ccc, transparent);
+  margin:10px auto;
+}
+</style>
+
+<div class="watermark-footer">
+  <span>Powered by Official Digital Billing System</span><br>
+  <span>© 2026 GOPINATH ENTERPRISE & TECHNOLOGY • All Rights Reserved</span>
+</div>
+
+</div>
 </div>
 
       
