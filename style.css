@@ -94,34 +94,23 @@ thead th{
 
   body{
     background:white;
+    margin:0;
     padding:0;
   }
 
-  /* Only invoice visible */
-  body *{
-    visibility:hidden;
-  }
-
-  .bill, .bill *{
-    visibility:visible;
-  }
-
-  .bill{
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    margin:0;
-    box-shadow:none;
-  }
-
-  /* Hide these from print */
+  /* Hide unwanted sections */
   .no-print,
   .invoice-actions,
   .secure-badge-wrapper,
   .authorised-text,
   .watermark-footer{
     display:none !important;
+  }
+
+  .bill{
+    box-shadow:none;
+    margin:0;
+    width:100%;
   }
 
 }
