@@ -32,6 +32,14 @@ th,td{
 .section{
   margin-top:10px;
 }
+
+
+<div class="invoice-actions">
+  <button onclick="window.print()" class="pdf-btn">
+    📄 Download PDF
+  </button>
+</div>
+  
 </style>
 </head>
 <body>
@@ -39,7 +47,10 @@ th,td{
 Loading Invoice...
 </div>
 
-
+<div class="invoice-note">
+  This is a computer generated invoice. No signature required.
+</div>
+  
   <style>
 .secure-badge-wrapper{
   margin-top:25px;
