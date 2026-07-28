@@ -206,14 +206,16 @@ let ram    = item.ram || item.ram_size || "";
 let rom    = item.rom || item.storage || "";
 let imei1  = item.imei1 || item.imei_1 || "";
 let imei2  = item.imei2 || item.imei_2 || "";
-
+let warranty = item.warranty || "";
 if(model)  subDetails += `<div style="font-size:11px;">Model No: ${model}</div>`;
 if(colour) subDetails += `<div style="font-size:11px;">Colour: ${colour}</div>`;
 if(ram)    subDetails += `<div style="font-size:11px;">RAM: ${ram}</div>`;
 if(rom)    subDetails += `<div style="font-size:11px;">ROM: ${rom}</div>`;
 if(imei1)  subDetails += `<div style="font-size:11px;">IMEI 1: ${imei1}</div>`;
 if(imei2)  subDetails += `<div style="font-size:11px;">IMEI 2: ${imei2}</div>`;
-
+if(warranty && warranty !== "No Warranty" && warranty !== "") {
+            subDetails += `<div style="font-size:11px; color:#d9534f; font-weight:bold;">Warranty: ${warranty}</div>`;
+        }
 itemsHTML += `
 <tr>
 <td>${index+1}</td>
