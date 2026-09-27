@@ -2,7 +2,7 @@
   "invoice": {
     "number": "GET-2026-0303",
     "date": "19-Sep-2026",
-    "payment_mode": "Credit"
+    "payment_mode": "Cash"
   },
   "customer": {
     "name": "NOKUL SON",
