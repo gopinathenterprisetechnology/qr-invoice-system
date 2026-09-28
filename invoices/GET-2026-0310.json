@@ -1,0 +1,39 @@
+{
+  "invoice": {
+    "number": "GET-2026-0310",
+    "date": "28-Sep-2026",
+    "payment_mode": "Credit"
+  },
+  "customer": {
+    "name": "CUSTOMER",
+    "address": "",
+    "mobile": "",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "SMALL LED TORCH 3 MODE",
+      "qty": "1",
+      "mrp": "100.00",
+      "rate": "100.00",
+      "amount": "100.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    }
+  ],
+  "total": {
+    "total_amount": "100.00",
+    "round_off": "0.00",
+    "net": "0.00",
+    "due": "0.00",
+    "paid": "0.00",
+    "amount_in_words": "Rupees  Only"
+  }
+}
