@@ -47,8 +47,8 @@
     "total_amount": "220.00",
     "round_off": "0.00",
     "net": "220.00",
-    "due": "220.00",
-    "paid": "0.00",
+    "due": "40.00",
+    "paid": "180.00",
     "amount_in_words": "Rupees Two Hundred and Twenty Only"
   }
 }
