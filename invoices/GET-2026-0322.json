@@ -1,0 +1,39 @@
+{
+  "invoice": {
+    "number": "GET-2026-0322",
+    "date": "08-Oct-2026",
+    "payment_mode": "Credit"
+  },
+  "customer": {
+    "name": "SAMAR MALIK",
+    "address": "JAYRAMPUR, ARAMBAGH, HOOGHLY, 712413",
+    "mobile": "6296996897",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "PORTRONICS TWINS S19",
+      "qty": "1",
+      "mrp": "2499.00",
+      "rate": "1250.00",
+      "amount": "1250.00",
+      "model": "POR 2215",
+      "colour": "BEIGE",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "365"
+    }
+  ],
+  "total": {
+    "total_amount": "1250.00",
+    "round_off": "0.00",
+    "net": "1250.00",
+    "due": "250.00",
+    "paid": "1000.00",
+    "amount_in_words": "Rupees One Thousand Two Hundred and Fifty Only"
+  }
+}
