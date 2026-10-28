@@ -14,11 +14,11 @@
   "items": [
     {
       "sl_no": "1",
-      "name": "ABREE TYPE C CABLE",
-      "qty": "1",
-      "mrp": "179.00",
-      "rate": "90.00",
-      "amount": "90.00",
+      "name": "AMR GOLD TYPE C CABLE",
+      "qty": "2",
+      "mrp": "99.00",
+      "rate": "60.00",
+      "amount": "120.00",
       "model": "",
       "colour": "",
       "ram": "",
@@ -29,11 +29,11 @@
     }
   ],
   "total": {
-    "total_amount": "90.00",
+    "total_amount": "120.00",
     "round_off": "0.00",
-    "net": "90.00",
+    "net": "60.00",
     "due": "0.00",
-    "paid": "90.00",
-    "amount_in_words": "Rupees Ninety Only"
+    "paid": "60.00",
+    "amount_in_words": "Rupees Sixty Only"
   }
 }
