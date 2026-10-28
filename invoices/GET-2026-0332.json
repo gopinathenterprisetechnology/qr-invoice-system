@@ -1,0 +1,39 @@
+{
+  "invoice": {
+    "number": "GET-2026-0332",
+    "date": "28-Oct-2026",
+    "payment_mode": "Cash"
+  },
+  "customer": {
+    "name": "CUSTOMER",
+    "address": "",
+    "mobile": "",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "ABREE TYPE C CABLE",
+      "qty": "1",
+      "mrp": "179.00",
+      "rate": "90.00",
+      "amount": "90.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    }
+  ],
+  "total": {
+    "total_amount": "90.00",
+    "round_off": "0.00",
+    "net": "90.00",
+    "due": "0.00",
+    "paid": "90.00",
+    "amount_in_words": "Rupees Ninety Only"
+  }
+}
