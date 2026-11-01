@@ -1,0 +1,39 @@
+{
+  "invoice": {
+    "number": "GET-2026-0335",
+    "date": "01-Nov-2026",
+    "payment_mode": "Cash"
+  },
+  "customer": {
+    "name": "MITALI MUKHERJEE",
+    "address": "DAKSHIN RASULPUR, ARAMBAGH, HOOGHLY, 712413",
+    "mobile": "9800721615",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "PORTRONICS TWINS 32",
+      "qty": "1",
+      "mrp": "1999.00",
+      "rate": "900.00",
+      "amount": "900.00",
+      "model": "POR 2899",
+      "colour": "WHITE",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "365"
+    }
+  ],
+  "total": {
+    "total_amount": "900.00",
+    "round_off": "0.00",
+    "net": "885.00",
+    "due": "0.00",
+    "paid": "885.00",
+    "amount_in_words": "Rupees Eight Hundred and Eighty Five Only"
+  }
+}
