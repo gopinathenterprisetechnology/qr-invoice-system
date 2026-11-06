@@ -5,12 +5,12 @@
     "payment_mode": "Cash"
   },
   "customer": {
-    "name": "CUSTOMER",
-    "address": "",
+    "name": "KUMARESH SANTRA",
+    "address": "DAKSHIN RASULPUR, ARAMBAGH, HOOGHLY",
     "mobile": "",
     "place_of_supply": "West Bengal"
   },
-  "description": "",
+  "description": "6 MONTHS WARRANTY",
   "items": [
     {
       "sl_no": "1",
@@ -19,13 +19,13 @@
       "mrp": "699.00",
       "rate": "430.00",
       "amount": "430.00",
-      "model": "",
-      "colour": "",
+      "model": "POR 2282",
+      "colour": "SILVER",
       "ram": "",
       "rom": "",
       "imei1": "",
       "imei2": "",
-      "warranty": "180"
+      "warranty": "180 DAYS"
     }
   ],
   "total": {
