@@ -1,0 +1,39 @@
+{
+  "invoice": {
+    "number": "GET-2026-0341",
+    "date": "06-Nov-2026",
+    "payment_mode": "Cash"
+  },
+  "customer": {
+    "name": "CUSTOMER",
+    "address": "",
+    "mobile": "",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "VIVO V30 PRO",
+      "qty": "1",
+      "mrp": "7999.00",
+      "rate": "500.00",
+      "amount": "500.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "90"
+    }
+  ],
+  "total": {
+    "total_amount": "500.00",
+    "round_off": "0.00",
+    "net": "500.00",
+    "due": "0.00",
+    "paid": "500.00",
+    "amount_in_words": "Rupees Five Hundred Only"
+  }
+}
