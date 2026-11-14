@@ -26,29 +26,14 @@
       "imei1": "",
       "imei2": "",
       "warranty": "No Warranty"
-    },
-    {
-      "sl_no": "2",
-      "name": "24 ENERGY SOLAR CHARGER LIGHET",
-      "qty": "1",
-      "mrp": "600.00",
-      "rate": "300.00",
-      "amount": "300.00",
-      "model": "",
-      "colour": "",
-      "ram": "",
-      "rom": "",
-      "imei1": "",
-      "imei2": "",
-      "warranty": "No Warranty"
     }
   ],
   "total": {
-    "total_amount": "420.00",
+    "total_amount": "120.00",
     "round_off": "0.00",
-    "net": "420.00",
-    "due": "100.00",
+    "net": "120.00",
+    "due": "0.00",
     "paid": "320.00",
-    "amount_in_words": "Rupees Four Hundred and Twenty Only"
+    "amount_in_words": "Rupees One Hundred and Twenty Only"
   }
 }
