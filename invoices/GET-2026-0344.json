@@ -1,0 +1,54 @@
+{
+  "invoice": {
+    "number": "GET-2026-0344",
+    "date": "15-Nov-2026",
+    "payment_mode": "Cash"
+  },
+  "customer": {
+    "name": "CUSTOMER",
+    "address": "",
+    "mobile": "",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "FINGERSLIPS",
+      "qty": "1",
+      "mrp": "50.00",
+      "rate": "10.00",
+      "amount": "10.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    },
+    {
+      "sl_no": "2",
+      "name": "CABLE PROTECTER",
+      "qty": "1",
+      "mrp": "49.00",
+      "rate": "10.00",
+      "amount": "10.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    }
+  ],
+  "total": {
+    "total_amount": "20.00",
+    "round_off": "0.00",
+    "net": "20.00",
+    "due": "0.00",
+    "paid": "20.00",
+    "amount_in_words": "Rupees Twenty Only"
+  }
+}
