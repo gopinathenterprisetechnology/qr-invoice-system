@@ -1,0 +1,84 @@
+{
+  "invoice": {
+    "number": "GET-2026-0345",
+    "date": "16-Nov-2026",
+    "payment_mode": "Cash"
+  },
+  "customer": {
+    "name": "CUSTOMER",
+    "address": "",
+    "mobile": "",
+    "place_of_supply": "West Bengal"
+  },
+  "description": "",
+  "items": [
+    {
+      "sl_no": "1",
+      "name": "REALME BUDS WIRELESS 3 NECKBAND",
+      "qty": "1",
+      "mrp": "2999.00",
+      "rate": "330.00",
+      "amount": "330.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    },
+    {
+      "sl_no": "2",
+      "name": "TICON TRAVEL TYPE B CHARGER",
+      "qty": "1",
+      "mrp": "200.00",
+      "rate": "70.00",
+      "amount": "70.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    },
+    {
+      "sl_no": "3",
+      "name": "AA BATTERY",
+      "qty": "2",
+      "mrp": "25.00",
+      "rate": "25.00",
+      "amount": "50.00",
+      "model": "AA",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    },
+    {
+      "sl_no": "4",
+      "name": "AAA BATTERY",
+      "qty": "2",
+      "mrp": "15.00",
+      "rate": "15.00",
+      "amount": "30.00",
+      "model": "",
+      "colour": "",
+      "ram": "",
+      "rom": "",
+      "imei1": "",
+      "imei2": "",
+      "warranty": "No Warranty"
+    }
+  ],
+  "total": {
+    "total_amount": "480.00",
+    "round_off": "0.00",
+    "net": "480.00",
+    "due": "0.00",
+    "paid": "480.00",
+    "amount_in_words": "Rupees Four Hundred and Eighty Only"
+  }
+}
